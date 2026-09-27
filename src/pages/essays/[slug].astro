@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { monthYear, pad } from "../../utils";
+
+export async function getStaticPaths() {
+  const essays = await getCollection("essays");
+  return essays.map((e) => ({ params: { slug: e.id }, props: { e } }));
+}
+
+const { e } = Astro.props;
+const { Content } = await render(e);
+---
+
+<Base title={`${e.data.title} — fuck, i'm a mom now`} description={e.data.excerpt}>
+  <article class="max-w-[680px] mx-auto px-6 py-16">
+    <a
+      href="/#essays"
+      class="label underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity"
+      >Zurück zu allen Essays</a
+    >
+
+    <header class:list={["mt-12 mb-12 pb-10 border-b", "hairline"]}>
+      <p class="label mb-5 opacity-70">
+        {pad(e.data.number)} · {monthYear(e.data.date)} · {e.data.minutes} Min. Lesezeit
+      </p>
+      <h1 class="font-serif lowercase text-3xl sm:text-5xl leading-[1.1] tracking-tight">
+        {e.data.title}
+      </h1>
+    </header>
+
+    <div class="prose-essay">
+      <Content />
+    </div>
+
+    <footer class:list={["mt-16 pt-8 border-t", "hairline"]}>
+      <p class="label mb-4 opacity-70">Wenn dir das gefallen hat</p>
+      <p class="leading-relaxed opacity-75">
+        Dann schreib mir einen Brief, wenn es einen neuen Text gibt, oder lies
+        weiter im{" "}
+        <a href="/#essays" class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity">
+          Archiv
+        </a>
+        .
+      </p>
+    </footer>
+  </article>
+</Base>

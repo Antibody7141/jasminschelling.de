@@ -1,0 +1,130 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { themes } from "../data/themes";
+import { monthYear, pad, SHOP_URL, WORDMARK } from "../utils";
+
+const essays = (await getCollection("essays")).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date)
+);
+const lead = essays[0];
+---
+
+<Base
+  title="fuck, i'm a mom now — Essays & Notizen"
+  description="Essays über das Elternsein ohne Weichzeichner. Persönliche Texte von Jasmin Schelling."
+>
+  <!-- Lead-Essay -->
+  <section>
+    <div class="max-w-[680px] mx-auto px-6 pt-20 pb-24">
+      <p class="label mb-8 opacity-70">
+        {pad(lead.data.number)} · {monthYear(lead.data.date)}
+      </p>
+      <h1
+        class="font-serif lowercase text-[2.6rem] sm:text-6xl leading-[1.05] tracking-tight"
+      >
+        {lead.data.title}
+      </h1>
+      <p class="max-w-xl mt-10 mb-6 text-lg sm:text-xl leading-relaxed opacity-75">
+        {lead.data.excerpt}
+      </p>
+      <p class="label mb-10 opacity-70">{lead.data.minutes} Min. Lesezeit</p>
+      <a
+        href={`/essays/${lead.id}/`}
+        class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity"
+        >Lesen</a
+      >
+    </div>
+  </section>
+
+  <!-- Index -->
+  <section id="essays">
+    <div class="max-w-[680px] mx-auto px-6 pb-20">
+      <h2 class="label mb-2 opacity-70">Alle Essays</h2>
+      {essays.map((e) => (
+        <a
+          href={`/essays/${e.id}/`}
+          class:list={["group block border-t py-6", "hairline"]}
+        >
+          <span class="flex items-baseline justify-between gap-6">
+            <span class="lowercase text-xl sm:text-2xl leading-snug underline-offset-4 group-hover:underline group-hover:text-wine-dark transition-colors">
+              {e.data.title}
+            </span>
+            <span class="label shrink-0 opacity-70">
+              {pad(e.data.number)} · {e.data.minutes} Min.
+            </span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Themen -->
+  <section id="themen">
+    <div class="max-w-[680px] mx-auto px-6 pb-20">
+      <h2 class="label mb-6 opacity-70">Themen</h2>
+      {themes.map((t) => (
+        <div class:list={["py-6 border-t", "hairline"]}>
+          <h3 class="lowercase text-xl sm:text-2xl leading-snug">{t.title}</h3>
+          <p class="mt-2 leading-relaxed opacity-75">{t.blurb}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Über mich -->
+  <section id="ueber-mich">
+    <div class="max-w-[680px] mx-auto px-6 pb-20">
+      <h2 class="label mb-6 opacity-70">Über mich</h2>
+      <p class="text-lg leading-relaxed mb-6">
+        Zehn Jahre lang war die Antwort auf die Frage, wer ich bin, super
+        einfach: Producerin. Dann kamen der Burnout und mitten drin die
+        Schwangerschaft. Heute bin ich Mutter von zwei Kindern und gerade
+        dabei herauszufinden, wer übrig bleibt, wenn die Berufsbezeichnung
+        wegfällt.
+      </p>
+      <p class="text-lg leading-relaxed mb-8">
+        Ich schreibe Essays über das Elternsein ohne Weichzeichner. Nicht als
+        Ratgeber und nicht für alle, sondern für die, die morgens um sechs
+        allein am Küchentisch sitzen und sich fragen, ob sie langsam
+        verrückt werden. Das hier ist ein Leseraum. Mehr nicht.
+      </p>
+      <p class="wordmark lowercase text-sm opacity-60">{WORDMARK}</p>
+    </div>
+  </section>
+
+  <!-- Einzige Unterbrechung: invertierte Brief-Sektion -->
+  <section id="brief" class="bg-wine text-cream">
+    <div class="max-w-[680px] mx-auto px-6 py-24">
+      <h2 class="lowercase text-3xl sm:text-5xl leading-tight tracking-tight">
+        Fuck, I'm a mom now.
+      </h2>
+      <p class="mt-8 text-lg sm:text-xl leading-relaxed opacity-90">
+        Wenn ich einen neuen Essay schreibe, schreibe ich dir einen Brief.
+        Nichts weiter. Kein Ratgeber, keine Werbung, nur ein Text, wenn einer
+        da ist.
+      </p>
+      <form class="mt-12" action="#" method="post">
+        <label class="label block mb-3" for="brief-email">
+          Ein Brief, wenn ich einen schreibe.
+        </label>
+        <div class="flex flex-col sm:flex-row items-stretch gap-4">
+          <input
+            id="brief-email"
+            name="email"
+            type="email"
+            required
+            placeholder="deine@email.de"
+            class="flex-1 bg-transparent border-b py-3 placeholder:opacity-50 focus:outline-none border-cream/40"
+          />
+          <button
+            type="submit"
+            class="self-start underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity"
+          >
+            Eintragen
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>

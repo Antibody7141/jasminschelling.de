@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+import { SHOP_URL, WORDMARK } from "../utils";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title ?? WORDMARK}</title>
+    <meta
+      name="description"
+      content={description ?? "Essays über das Elternsein ohne Weichzeichner. Persönliche Texte von Jasmin Schelling."}
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col bg-cream text-wine">
+    <header class="sticky top-0 z-50 bg-cream/95">
+      <div
+        class:list={["max-w-[1080px] mx-auto px-6 py-5 flex items-center justify-between gap-6 border-b", "hairline"]}
+      >
+        <a href="/" class="wordmark lowercase leading-tight hover:opacity-75 transition-opacity">
+          {WORDMARK}
+        </a>
+        <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.8rem] tracking-[0.12em] uppercase">
+          <a href="/#essays" class="hover:opacity-70 transition-opacity">Essays</a>
+          <a href="/#themen" class="hover:opacity-70 transition-opacity">Themen</a>
+          <a href="/#ueber-mich" class="hover:opacity-70 transition-opacity">Über mich</a>
+          <a
+            href={SHOP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity"
+          >
+            badass parents<span aria-hidden="true">↗</span>
+          </a>
+          <a href="/#brief" class="hover:opacity-70 transition-opacity">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="border-t hairline">
+      <div class="max-w-[1080px] mx-auto px-6 py-12">
+        <div
+          class:list={["flex flex-col sm:flex-row items-baseline justify-between gap-6 pb-10 border-b", "hairline"]}
+        >
+          <nav class="flex flex-wrap gap-x-8 gap-y-2 text-[0.8rem] tracking-[0.12em] uppercase">
+            <a href="/#essays" class="hover:opacity-70 transition-opacity">Essays</a>
+            <a href="/#brief" class="hover:opacity-70 transition-opacity">Kontakt</a>
+            <a href="/impressum/" class="hover:opacity-70 transition-opacity">Impressum</a>
+            <a href="/datenschutz/" class="hover:opacity-70 transition-opacity">Datenschutz</a>
+            <a href="/rss.xml" class="hover:opacity-70 transition-opacity">RSS</a>
+          </nav>
+          <p class="wordmark lowercase text-sm opacity-70">{WORDMARK}</p>
+        </div>
+        <p class="pt-8 text-sm opacity-60">© 2026 Jasmin Schelling. Alle Rechte vorbehalten.</p>
+      </div>
+    </footer>
+  </body>
+</html>
