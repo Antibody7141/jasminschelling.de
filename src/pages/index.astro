@@ -2,128 +2,203 @@
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
 import { themes } from "../data/themes";
-import { monthYear, pad, SHOP_URL, WORDMARK } from "../utils";
+import { monthYear, pad, TAGLINE, WORDMARK } from "../utils";
 
 const essays = (await getCollection("essays")).sort((a, b) =>
   b.data.date.localeCompare(a.data.date)
 );
 const lead = essays[0];
+const rest = essays.slice(1);
 ---
 
 <Base
-  title="fuck, i'm a mom now — Essays & Notizen"
-  description="Essays über das Elternsein ohne Weichzeichner. Persönliche Texte von Jasmin Schelling."
+  title={`${WORDMARK} — ${"Essays & Notizen"}`}
+  description="Essays und Notizen über das Elternsein ohne Weichzeichner. Trocken serviert, warmherzig gemeint. Von Jasmin Schelling."
 >
-  <!-- Lead-Essay -->
-  <section>
-    <div class="max-w-[680px] mx-auto px-6 pt-20 pb-24">
-      <p class="label mb-8 opacity-70">
-        {pad(lead.data.number)} · {monthYear(lead.data.date)}
-      </p>
-      <h1
-        class="font-serif lowercase text-[2.6rem] sm:text-6xl leading-[1.05] tracking-tight"
-      >
-        {lead.data.title}
-      </h1>
-      <p class="max-w-xl mt-10 mb-6 text-lg sm:text-xl leading-relaxed opacity-75">
-        {lead.data.excerpt}
-      </p>
-      <p class="label mb-10 opacity-70">{lead.data.minutes} Min. Lesezeit</p>
-      <a
-        href={`/essays/${lead.id}/`}
-        class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity"
-        >Lesen</a
-      >
-    </div>
-  </section>
+  <!-- Hero -->
+  <section
+    class="border-b border-linen-200 pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden"
+  >
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-7 flex flex-col items-start">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 rounded-full border shadow-sm" style="background-color: #faf2ed; border-color: #6d2417;">
+            <span class="w-2 h-2 rounded-full animate-pulse" style="background-color: #6d2417;"></span>
+            <span class="text-[11px] sm:text-[12px] uppercase tracking-[0.24em] font-semibold" style="color: #6d2417;">{TAGLINE}</span>
+          </div>
 
-  <!-- Index -->
-  <section id="essays">
-    <div class="max-w-[680px] mx-auto px-6 pb-20">
-      <h2 class="label mb-2 opacity-70">Alle Essays</h2>
-      {essays.map((e) => (
-        <a
-          href={`/essays/${e.id}/`}
-          class:list={["group block border-t py-6", "hairline"]}
-        >
-          <span class="flex items-baseline justify-between gap-6">
-            <span class="lowercase text-xl sm:text-2xl leading-snug underline-offset-4 group-hover:underline group-hover:text-wine-dark transition-colors">
-              {e.data.title}
-            </span>
-            <span class="label shrink-0 opacity-70">
-              {pad(e.data.number)} · {e.data.minutes} Min.
-            </span>
-          </span>
-        </a>
-      ))}
-    </div>
-  </section>
+          <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-medium mb-6 leading-[1.05] tracking-tight lowercase" style="color: #6d2417;">
+            {lead.data.title}
+          </h1>
 
-  <!-- Themen -->
-  <section id="themen">
-    <div class="max-w-[680px] mx-auto px-6 pb-20">
-      <h2 class="label mb-6 opacity-70">Themen</h2>
-      {themes.map((t) => (
-        <div class:list={["py-6 border-t", "hairline"]}>
-          <h3 class="lowercase text-xl sm:text-2xl leading-snug">{t.title}</h3>
-          <p class="mt-2 leading-relaxed opacity-75">{t.blurb}</p>
+          <div class="max-w-xl mb-8">
+            <p class="text-lg sm:text-xl leading-relaxed font-serif italic mb-3" style="color: #622e19;">
+              <strong class="not-italic font-sans text-xs uppercase tracking-[0.2em] font-bold px-2 py-0.5 mr-2 rounded" style="background-color: #ffdad3; color: #6d2417;">Spoiler</strong>
+              {lead.data.excerpt}
+            </p>
+            <p class="text-sm leading-relaxed font-normal" style="color: #7e442e;">
+              Ein ungeschminktes Feuilleton über Schlafmangel, Mental Load und die leise Kunst, trotz allem nicht verrückt zu werden.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full sm:w-auto">
+            <a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-[12px] uppercase tracking-[0.2em] font-semibold transition-all duration-200 shadow-md group rounded-full hover:opacity-90" href={`/essays/${lead.id}/`} style="background-color: #6d2417; color: #ffffff;">
+              <span>Diesen Essay lesen</span>
+              <span class="transform group-hover:translate-x-1.5 transition-transform">→</span>
+            </a>
+            <div class="flex items-center gap-2 px-3.5 py-2 rounded-full border shadow-sm" style="background-color: #fff8f4; border-color: #ffb4a6; color: #6d2417;">
+              <span class="text-xs font-semibold tracking-wide">[ AUSGABE #{pad(lead.data.number)} ]</span>
+              <span class="text-xs opacity-75">· {lead.data.minutes} Min. ungeschönte Lesezeit</span>
+            </div>
+          </div>
         </div>
-      ))}
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative w-full aspect-[4/5] overflow-hidden flex items-center justify-center bg-linen-200" style="border: 1px solid rgba(255, 181, 154, 0.6); box-shadow: 0 12px 36px -10px rgba(93, 24, 12, 0.08); background: linear-gradient(180deg, #fbf8f4 0%, #f3ede4 100%);">
+            <p class="font-serif italic text-2xl sm:text-3xl px-8 text-center" style="color: #9e4733;">Ein echter Text braucht kein Stock-Foto.</p>
+          </div>
+          <div class="mt-3 flex items-center justify-between text-[11px] text-ink-soft uppercase tracking-widest">
+            <span>Stillleben am Küchentisch</span>
+            <span>Foto folgt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Ausgewählte Essays -->
+  <section id="essays" class="bg-linen-100 py-20 lg:py-24 border-b border-linen-200" style="background-color: #f4dfd5;">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
+        <div class="inline-block px-3 py-1 mb-3 rounded-full border" style="background-color: #fff8f4; border-color: #88726e;">
+          <span class="text-[11px] uppercase tracking-[0.22em] font-bold" style="color: #6d2417;">Werkschau & Protokolle</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium mb-4" style="color: #6d2417;">Ausgewählte Texte & Werkreihen</h2>
+        <p class="text-base sm:text-xl font-serif italic max-w-2xl mx-auto" style="color: #622e19;">Ehrliche Essays über das Elternsein ohne Weichzeichner. Trocken serviert, warmherzig gemeint.</p>
+      </div>
+
+      <div class="space-y-6 lg:space-y-8">
+        {essays.map((e) => (
+          <article class="bg-white p-8 sm:p-10 lg:p-12 transition-all duration-200 shadow-sm rounded-xl hover:shadow-md" style="border: 2px solid #6d2417; box-shadow: 0 6px 24px rgba(109, 36, 23, 0.08);">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div class="lg:col-span-7">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="px-2.5 py-0.5 rounded text-[11px] uppercase tracking-[0.22em] font-bold text-white" style="background-color: #6d2417;">Essay {pad(e.data.number)}</span>
+                  <span class="inline-block w-6 h-[1px]" style="background-color: #ffb4a6;"></span>
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold tracking-wide border" style="background-color: #faf2ed; color: #6d2417; border-color: #ffb4a6;">{e.data.minutes} Min. Lesezeit</span>
+                </div>
+                <a href={`/essays/${e.id}/`}>
+                  <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-medium mb-3 lowercase hover:opacity-80 transition-opacity" style="color: #6d2417;">{e.data.title}</h3>
+                </a>
+                <p class="text-base sm:text-lg italic font-serif mb-3" style="color: #622e19;">{e.data.excerpt}</p>
+                <span class="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold px-2.5 py-1 rounded" style="background-color: #ffdad3; color: #6d2417;">{e.data.tag}</span>
+              </div>
+
+              <div class="lg:col-span-5 flex flex-col justify-between border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-10" style="border-color: rgba(109, 36, 23, 0.25);">
+                <div class="mb-6">
+                  <p class="text-[11px] uppercase tracking-[0.22em] font-bold mb-3 flex items-center gap-2" style="color: #6d2417;">
+                    <span>Was darin vorkommt</span>
+                    <span class="text-[10px] px-1.5 py-0.5 rounded font-mono font-normal" style="background-color: #faf2ed;">unzensiert</span>
+                  </p>
+                  <ul class="space-y-2 text-sm font-medium" style="color: #55423f;">
+                    {e.data.bullets.map((b) => (
+                      <li class="flex items-start gap-2">
+                        <span class="text-base leading-none font-bold" style="color: #6d2417;">→</span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold hover:opacity-80 transition-opacity" href={`/essays/${e.id}/`} style="color: #6d2417;">
+                  <span>Ganzen Essay lesen</span><span>→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Archiv -->
+  <section id="archiv" class="bg-linen-50 py-20 lg:py-24 border-b border-linen-200" style="background-color: #ffffff;">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="inline-block px-3 py-1 mb-4 rounded-full border" style="background-color: #ffdad3; border-color: #6d2417;">
+        <span class="text-[11px] uppercase tracking-[0.22em] font-bold" style="color: #6d2417;">Archiv</span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl font-medium mb-10" style="color: #6d2417;">Alle Essays</h2>
+      <div class="divide-y divide-linen-200 border-y border-linen-200">
+        {essays.map((e) => (
+          <a href={`/essays/${e.id}/`} class="group flex items-baseline justify-between gap-6 py-6">
+            <span class="flex items-baseline gap-4 min-w-0">
+              <span class="text-[11px] uppercase tracking-[0.22em] font-bold shrink-0" style="color: #7a392c;">{pad(e.data.number)}</span>
+              <span class="font-serif text-xl sm:text-2xl lowercase group-hover:opacity-70 transition-opacity" style="color: #6d2417;">{e.data.title}</span>
+            </span>
+            <span class="text-xs uppercase tracking-wider shrink-0" style="color: #7e442e;">{monthYear(e.data.date)} · {e.data.minutes} Min.</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <!-- Themen -->
+  <section id="themen" class="bg-linen-50 py-20 lg:py-24 border-b border-linen-200" style="background-color: #fbf8f4;">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="inline-block px-3 py-1 mb-4 rounded-full border" style="background-color: #fff8f4; border-color: #88726e;">
+        <span class="text-[11px] uppercase tracking-[0.22em] font-bold" style="color: #6d2417;">Themen</span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl font-medium mb-12" style="color: #6d2417;">Worüber ich schreibe</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+        {themes.map((t) => (
+          <div class="border-t pt-6" style="border-color: rgba(109, 36, 23, 0.25);">
+            <h3 class="font-serif text-2xl font-medium mb-2 lowercase" style="color: #6d2417;">{t.title}</h3>
+            <p class="text-sm sm:text-base leading-relaxed" style="color: #55423f;">{t.blurb}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- Über mich -->
-  <section id="ueber-mich">
-    <div class="max-w-[680px] mx-auto px-6 pb-20">
-      <h2 class="label mb-6 opacity-70">Über mich</h2>
-      <p class="text-lg leading-relaxed mb-6">
-        Zehn Jahre lang war die Antwort auf die Frage, wer ich bin, super
-        einfach: Producerin. Dann kamen der Burnout und mitten drin die
-        Schwangerschaft. Heute bin ich Mutter von zwei Kindern und gerade
-        dabei herauszufinden, wer übrig bleibt, wenn die Berufsbezeichnung
-        wegfällt.
-      </p>
-      <p class="text-lg leading-relaxed mb-8">
-        Ich schreibe Essays über das Elternsein ohne Weichzeichner. Nicht als
-        Ratgeber und nicht für alle, sondern für die, die morgens um sechs
-        allein am Küchentisch sitzen und sich fragen, ob sie langsam
-        verrückt werden. Das hier ist ein Leseraum. Mehr nicht.
-      </p>
-      <p class="wordmark lowercase text-sm opacity-60">{WORDMARK}</p>
+  <section id="ueber-mich" class="bg-linen-50 py-20 lg:py-28 border-b border-linen-200" style="background-color: #ffffff;">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="relative aspect-[4/3] overflow-hidden flex items-center justify-center bg-linen-200" style="background: linear-gradient(180deg, #fbf8f4 0%, #f3ede4 100%); border: 1px solid rgba(255, 181, 154, 0.6);">
+            <p class="font-serif italic text-2xl px-8 text-center" style="color: #9e4733;">Foto folgt · Notizbuch, Kaffee &amp; Stille</p>
+          </div>
+          <p class="text-[11px] uppercase tracking-widest mt-3 text-ink-soft">Porträt oder Stillleben am Küchentisch</p>
+        </div>
+
+        <div class="lg:col-span-6 order-1 lg:order-2 flex flex-col items-start">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-4 rounded-full border" style="background-color: #ffdad3; border-color: #6d2417;">
+            <span class="text-[11px] uppercase tracking-[0.24em] font-bold" style="color: #6d2417;">Manifest der Autorin</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-6 leading-tight" style="color: #6d2417;">
+            Kein Ratgeber.<br /><span class="italic" style="color: #994535;">Kein rosa Weichzeichner.</span><br /><span class="underline decoration-wavy decoration-1 underline-offset-4" style="text-decoration-color: #ffb4a6;">Ein ungeschöntes Protokoll.</span>
+          </h2>
+          <div class="space-y-4 text-base sm:text-lg leading-relaxed font-light mb-6" style="color: #55423f;">
+            <p>Ich schreibe hier, weil mir die rosarote Elternecke in den Buchhandlungen körperliche Schmerzen bereitet. Ich habe keine 5-Schritte-Tipps für durchschlafende Nächte oder sanfte Erleuchtung unter Duftkerzenschein.</p>
+            <p>Sondern ehrliche Notizen über tektonische Verschiebungen nach einer Geburt — trocken, selbstironisch und mit Raum für das Schöne, das man oft erst im Nachhinein greifen kann.</p>
+          </div>
+          <div class="p-4 rounded-xl border mb-8" style="background-color: #faf2ed; border-color: #ffb4a6;">
+            <p class="text-sm italic font-serif leading-relaxed" style="color: #6d2417;">»Elternsein ist ein bisschen wie eine Party, auf der alle weinen, aber niemand nach Hause gehen kann — und am Ende will man sie trotzdem um keinen Preis verlassen.«</p>
+          </div>
+          <a class="inline-flex items-center gap-3 px-8 py-4 text-[12px] uppercase tracking-[0.2em] font-bold transition-all duration-200 group rounded-full shadow-md hover:opacity-90" href="/#brief" style="background-color: #6d2417; color: #ffffff;">
+            <span>Mehr über mich &amp; bad*** parents</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Einzige Unterbrechung: invertierte Brief-Sektion -->
-  <section id="brief" class="bg-wine text-cream">
-    <div class="max-w-[680px] mx-auto px-6 py-24">
-      <h2 class="lowercase text-3xl sm:text-5xl leading-tight tracking-tight">
-        Fuck, I'm a mom now.
-      </h2>
-      <p class="mt-8 text-lg sm:text-xl leading-relaxed opacity-90">
-        Wenn ich einen neuen Essay schreibe, schreibe ich dir einen Brief.
-        Nichts weiter. Kein Ratgeber, keine Werbung, nur ein Text, wenn einer
-        da ist.
-      </p>
-      <form class="mt-12" action="#" method="post">
-        <label class="label block mb-3" for="brief-email">
-          Ein Brief, wenn ich einen schreibe.
-        </label>
-        <div class="flex flex-col sm:flex-row items-stretch gap-4">
-          <input
-            id="brief-email"
-            name="email"
-            type="email"
-            required
-            placeholder="deine@email.de"
-            class="flex-1 bg-transparent border-b py-3 placeholder:opacity-50 focus:outline-none border-cream/40"
-          />
-          <button
-            type="submit"
-            class="self-start underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity"
-          >
-            Eintragen
-          </button>
-        </div>
+  <!-- Kontakt / Brief -->
+  <section id="brief" class="py-20 lg:py-24 text-linen-50" style="background-color: #6d2417;">
+    <div class="max-w-2xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mb-6 leading-tight" style="color: #ffdad3;">Ein Brief, wenn ich einen schreibe.</h2>
+      <p class="text-base sm:text-lg leading-relaxed mb-10" style="color: #f3ede4;">Kein Newsletter-Geflecht, keine Werbung. Nur ein Text, wenn einer da ist — direkt in dein Postfach. Versprochen, ohne Zuckerguss.</p>
+      <form class="mx-auto max-w-lg flex flex-col sm:flex-row gap-3" action="#" method="post">
+        <input id="brief-email" type="email" name="email" required placeholder="deine@email.de" class="flex-1 rounded-full px-5 py-3.5 text-sm bg-linen-50 focus:outline-none" style="color: #1c1917;" />
+        <button type="submit" class="rounded-full px-8 py-3.5 text-[12px] uppercase tracking-[0.2em] font-semibold transition hover:opacity-90" style="background-color: #ffdad3; color: #6d2417;">Eintragen</button>
       </form>
     </div>
   </section>

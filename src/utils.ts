@@ -14,4 +14,7 @@ export function monthYear(date: string): string {
 }
 
 export const SHOP_URL = "https://www.etsy.com/shop/BadassParentsDE";
-export const WORDMARK = "fuck, i'm a mom now";
+export const WORDMARK = "Jasmin Schelling";
+export const SUBTITLE = "Essays & Notizen";
+export const TAGLINE =
+  "Realitätscheck statt rosaroter Blödsinn · Notizen aus der Tieferschöpfung";

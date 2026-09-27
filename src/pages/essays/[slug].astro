@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Base from "../../layouts/Base.astro";
-import { monthYear, pad } from "../../utils";
+import { monthYear, pad, WORDMARK } from "../../utils";
 
 export async function getStaticPaths() {
   const essays = await getCollection("essays");
@@ -12,19 +12,20 @@ const { e } = Astro.props;
 const { Content } = await render(e);
 ---
 
-<Base title={`${e.data.title} — fuck, i'm a mom now`} description={e.data.excerpt}>
-  <article class="max-w-[680px] mx-auto px-6 py-16">
+<Base title={`${e.data.title} — ${WORDMARK}`} description={e.data.excerpt}>
+  <article class="max-w-[720px] mx-auto px-6 sm:px-8 py-16">
     <a
-      href="/#essays"
+      href="/#archiv"
       class="label underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity"
+      style="color: #6d2417"
       >Zurück zu allen Essays</a
     >
 
-    <header class:list={["mt-12 mb-12 pb-10 border-b", "hairline"]}>
-      <p class="label mb-5 opacity-70">
-        {pad(e.data.number)} · {monthYear(e.data.date)} · {e.data.minutes} Min. Lesezeit
+    <header class="mt-12 mb-12 pb-10 border-b" style="border-color: rgba(109, 36, 23, 0.25);">
+      <p class="label mb-5" style="color: #7a392c;">
+        Essay {pad(e.data.number)} · {monthYear(e.data.date)} · {e.data.minutes} Min. Lesezeit
       </p>
-      <h1 class="font-serif lowercase text-3xl sm:text-5xl leading-[1.1] tracking-tight">
+      <h1 class="font-serif text-3xl sm:text-5xl leading-[1.1] tracking-tight lowercase" style="color: #6d2417;">
         {e.data.title}
       </h1>
     </header>
@@ -33,12 +34,12 @@ const { Content } = await render(e);
       <Content />
     </div>
 
-    <footer class:list={["mt-16 pt-8 border-t", "hairline"]}>
-      <p class="label mb-4 opacity-70">Wenn dir das gefallen hat</p>
-      <p class="leading-relaxed opacity-75">
+    <footer class="mt-16 pt-8 border-t" style="border-color: rgba(109, 36, 23, 0.25);">
+      <p class="label mb-4" style="color: #6d2417;">Wenn dir das gefallen hat</p>
+      <p class="leading-relaxed" style="color: #55423f;">
         Dann schreib mir einen Brief, wenn es einen neuen Text gibt, oder lies
         weiter im{" "}
-        <a href="/#essays" class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity">
+        <a href="/#archiv" class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity" style="color: #6d2417;">
           Archiv
         </a>
         .

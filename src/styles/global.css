@@ -1,15 +1,33 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Brand-Tokens (Jasmins Marken-Kern, deckungsgleich mit Etsy):
-   Creme + Weinrot, Garamond-Serif, Hairlines statt Kästchen.
-   Eine Akzentfarbe. Nichts Runder, nichts Dekoratives.
+   Jasmins Blog-Design (vom gepasteten HTML-Mockup, 2026-09-22)
+   Palette: Linen (Warm-Creme), Terrakotta/Rost, Pfirsich-Highlights.
+   Typografie: Newsreader (Serif) fuer Headlines, Plus Jakarta Sans
+   fuer den Rest. Warm, editorial, Pills + leicht abgerundete Karten.
    ============================================================ */
 @theme {
-  --color-cream: #fffdfc;
-  --color-wine: #7b241c;
-  --color-wine-dark: #5c1a14;
-  --font-serif: "EB Garamond", "Georgia", serif;
+  --color-linen-50: #fbf8f4;
+  --color-linen-100: #f3ede4;
+  --color-linen-200: #e7dfd5;
+  --color-linen-300: #d9cfc4;
+
+  --color-terracotta: #9e4733;
+  --color-terracotta-dark: #853725;
+  --color-terracotta-light: #be5e48;
+
+  --color-accent: #6d2417;        /* Stark fuer Text/Buttons */
+  --color-accent-dark: #5c1a14;
+  --color-peach: #ffb4a6;
+  --color-peach-light: #ffdad3;
+  --color-peach-bg: #faf2ed;
+
+  --color-ink: #1c1917;
+  --color-ink-muted: #44403c;
+  --color-ink-soft: #78716c;
+
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 @layer base {
@@ -17,40 +35,34 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: var(--color-cream);
-    color: var(--color-wine);
-    font-family: var(--font-serif);
+    background-color: var(--color-linen-50);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
-    background: rgba(123, 36, 28, 0.16);
+    background: rgba(157, 71, 51, 0.18);
   }
 }
 
-/* Gedämpfter Fliesstext = Weinrot bei 65% Deckkraft (innerhalb des
-   Kerns, kein drittes Grey). Hairlines = Weinrot bei 20 %. */
 @layer components {
-  .text-muted {
-    color: rgba(123, 36, 28, 0.65);
-  }
-  .hairline {
-    border-color: rgba(123, 36, 28, 0.2);
-  }
   .label {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
   .wordmark {
-    letter-spacing: 0.02em;
     line-height: 1.15;
   }
-  /* Essay-Leseseite: 19-20px Fliesstext, grosszuegige Zeilenhoche,
-     Absatzabstand statt Einzug. */
+  /* Essay-Leseseite: Serif, grosszuegige Zeilenhoche, Absatzabstand */
   .prose-essay {
-    font-size: 1.2rem;
-    line-height: 1.7;
+    font-family: var(--font-serif);
+    font-size: 1.18rem;
+    line-height: 1.8;
+    color: var(--color-ink-muted);
   }
   .prose-essay p {
     margin: 0 0 1.4em;

@@ -1,12 +1,13 @@
 ---
 import "../styles/global.css";
-import { SHOP_URL, WORDMARK } from "../utils";
+import { SHOP_URL, SUBTITLE, WORDMARK } from "../utils";
 
 interface Props {
   title?: string;
   description?: string;
 }
 const { title, description } = Astro.props;
+const pageTitle = title ?? `${WORDMARK} — ${SUBTITLE}`;
 ---
 
 <!doctype html>
@@ -14,39 +15,61 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title ?? WORDMARK}</title>
+    <title>{pageTitle}</title>
     <meta
       name="description"
-      content={description ?? "Essays über das Elternsein ohne Weichzeichner. Persönliche Texte von Jasmin Schelling."}
+      content={description ?? "Essays und Notizen über das Elternsein ohne Weichzeichner. Von Jasmin Schelling."}
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen flex flex-col bg-cream text-wine">
-    <header class="sticky top-0 z-50 bg-cream/95">
-      <div
-        class:list={["max-w-[1080px] mx-auto px-6 py-5 flex items-center justify-between gap-6 border-b", "hairline"]}
-      >
-        <a href="/" class="wordmark lowercase leading-tight hover:opacity-75 transition-opacity">
-          {WORDMARK}
+  <body class="min-h-screen flex flex-col bg-linen-50 text-ink selection:bg-peach-light">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-linen-50/95 backdrop-blur-sm border-b border-linen-200 transition-colors">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+        <a href="/" class="flex flex-col group">
+          <span
+            class="font-serif text-2xl sm:text-[28px] font-normal italic transition-opacity group-hover:opacity-80"
+            style="color: #6d2417"
+            >{WORDMARK}</span
+          >
+          <span class="text-[10px] uppercase tracking-[0.28em] font-medium -mt-0.5" style="color: #7a392c">
+            {SUBTITLE}
+          </span>
         </a>
-        <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.8rem] tracking-[0.12em] uppercase">
-          <a href="/#essays" class="hover:opacity-70 transition-opacity">Essays</a>
-          <a href="/#themen" class="hover:opacity-70 transition-opacity">Themen</a>
-          <a href="/#ueber-mich" class="hover:opacity-70 transition-opacity">Über mich</a>
+
+        <nav class="hidden md:flex items-center space-x-8 text-[14px] tracking-wide text-ink-muted">
+          <a href="/#essays" class="hover:opacity-70 transition-opacity" style="color: #6d2417">Essays</a>
+          <a href="/#themen" class="hover:opacity-70 transition-opacity" style="color: #6d2417">Themen</a>
+          <a href="/#archiv" class="hover:opacity-70 transition-opacity" style="color: #6d2417">Archiv</a>
+          <a href="/#ueber-mich" class="hover:opacity-70 transition-opacity" style="color: #6d2417">Über mich</a>
           <a
             href={SHOP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity"
+            class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full transition-opacity hover:opacity-80"
+            style="background-color: #faece6; color: #7a281a; border: 1px solid rgba(255, 181, 154, 0.5)"
           >
-            badass parents<span aria-hidden="true">↗</span>
+            bad*** parents
+            <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path>
+            </svg>
           </a>
-          <a href="/#brief" class="hover:opacity-70 transition-opacity">Kontakt</a>
+          <a
+            href="/#brief"
+            class="px-4 py-1.5 rounded-full font-medium transition-opacity hover:opacity-85"
+            style="background-color: #6d2417; color: #ffffff"
+            >Kontakt</a
+          >
         </nav>
       </div>
     </header>
@@ -55,21 +78,34 @@ const { title, description } = Astro.props;
       <slot />
     </main>
 
-    <footer class="border-t hairline">
-      <div class="max-w-[1080px] mx-auto px-6 py-12">
-        <div
-          class:list={["flex flex-col sm:flex-row items-baseline justify-between gap-6 pb-10 border-b", "hairline"]}
-        >
-          <nav class="flex flex-wrap gap-x-8 gap-y-2 text-[0.8rem] tracking-[0.12em] uppercase">
-            <a href="/#essays" class="hover:opacity-70 transition-opacity">Essays</a>
-            <a href="/#brief" class="hover:opacity-70 transition-opacity">Kontakt</a>
-            <a href="/impressum/" class="hover:opacity-70 transition-opacity">Impressum</a>
-            <a href="/datenschutz/" class="hover:opacity-70 transition-opacity">Datenschutz</a>
-            <a href="/rss.xml" class="hover:opacity-70 transition-opacity">RSS</a>
+    <!-- Footer -->
+    <footer class="bg-linen-50 border-t border-linen-200 py-12 lg:py-16" style="background-color: #ffffff">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="flex flex-col md:flex-row items-baseline justify-between gap-8 pb-12 border-b border-linen-200">
+          <div class="max-w-md">
+            <p class="font-serif text-2xl italic" style="color: #5d180c">{WORDMARK}</p>
+            <p class="text-sm mt-2 font-light" style="color: #6e382e">
+              Freie Autorin, Essayistin und Gründerin von{" "}
+              <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75" style="color: #5d180c">
+                bad*** parents
+              </a>
+              . Texte über die rauen Kanten des Elternseins.
+            </p>
+          </div>
+          <nav class="flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-wider text-ink-muted">
+            <a href="/#essays" class="hover:opacity-75 transition-opacity">Essays</a>
+            <a href="/#themen" class="hover:opacity-75 transition-opacity">Themenindex</a>
+            <a href="/#archiv" class="hover:opacity-75 transition-opacity">Archiv</a>
+            <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">Etsy Shop ↗</a>
+            <a href="/rss.xml" class="hover:opacity-75 transition-opacity">RSS Feed</a>
+            <a href="/impressum/" class="hover:opacity-75 transition-opacity">Impressum</a>
+            <a href="/datenschutz/" class="hover:opacity-75 transition-opacity">Datenschutz</a>
           </nav>
-          <p class="wordmark lowercase text-sm opacity-70">{WORDMARK}</p>
         </div>
-        <p class="pt-8 text-sm opacity-60">© 2026 Jasmin Schelling. Alle Rechte vorbehalten.</p>
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-ink-soft tracking-wider">
+          <p>© 2026 Jasmin Schelling. Alle Rechte vorbehalten.</p>
+          <p class="mt-2 sm:mt-0 font-serif italic text-xs">»Clarity is earned, not given.«</p>
+        </div>
       </div>
     </footer>
   </body>

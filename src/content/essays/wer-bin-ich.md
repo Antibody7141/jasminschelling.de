@@ -4,6 +4,11 @@ date: "2026-09"
 number: 1
 minutes: 4
 theme: "Wer bin ich"
+tag: "#IdentitätJenseitsDesJobs"
+bullets:
+  - "Identitätsverlust nach dem Job"
+  - "Burnout & zwei Elternzeiten"
+  - "Die Frage, die man nie fertig beantwortet"
 excerpt: "Nach dem Abi keine Ahnung, dann „irgendwas mit Medien“, dann der Burnout und mitten drin die Schwangerschaft. Eine Frage, die man nie fertig beantwortet."
 ---
 
