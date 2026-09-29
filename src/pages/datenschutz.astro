@@ -1,0 +1,73 @@
+---
+import Base from "../layouts/Base.astro";
+import { WORDMARK } from "../utils";
+
+const EMAIL = "jasmin@catmanverlag.de";
+const ADDRESS = "Rubensstraße 89, 12157 Berlin";
+---
+
+<Base title={`Datenschutz — ${WORDMARK}`} description="Datenschutzerklärung für jasminschelling.de.">
+  <article class="max-w-[720px] mx-auto px-6 sm:px-8 py-16">
+    <header class="mb-12 pb-10 border-b" style="border-color: rgba(109, 36, 23, 0.25);">
+      <p class="label mb-5" style="color: #7a392c;">Rechtliches</p>
+      <h1 class="font-serif text-3xl sm:text-5xl leading-[1.1] tracking-tight lowercase" style="color: #6d2417;">
+        Datenschutzerklärung
+      </h1>
+    </header>
+
+    <div class="prose-essay">
+      <h2 class="label mb-4" style="color: #6d2417;">1. Verantwortlicher</h2>
+      <p>
+        Jasmin Katzmann Schelling<br />
+        {ADDRESS}<br />
+        E-Mail: <a href={`mailto:${EMAIL}`} class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity" style="color: #6d2417;">{EMAIL}</a>
+      </p>
+
+      <h2 class="label mb-4 mt-10" style="color: #6d2417;">2. Allgemeines</h2>
+      <p>
+        Diese Website ist ein persönlicher Blog. Ich verarbeite personenbezogene Daten nur, soweit es für den
+        Betrieb der Website technisch erforderlich ist oder du mir Daten aktiv übermittelst. Eine Weitergabe
+        an Dritte zu Werbezwecken findet nicht statt.
+      </p>
+
+      <h2 class="label mb-4 mt-10" style="color: #6d2417;">3. Hosting</h2>
+      <p>
+        Diese Website wird bei Cloudflare, Inc. (101 Townsend St, San Francisco, CA 94107, USA) über den
+        Dienst Cloudflare Pages gehostet. Beim Aufruf der Website verarbeitet Cloudflare technisch notwendige
+        Daten wie deine IP-Adresse, um die Seite auszuliefern. Cloudflare verarbeitet diese Daten als
+        Auftragsverarbeiter. Die Übermittlung in die USA erfolgt auf Grundlage der Standardvertragsklauseln der
+        EU-Kommission. Weitere Informationen: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity" style="color: #6d2417;">Cloudflare Privacy Policy</a>.
+      </p>
+
+      <h2 class="label mb-4 mt-10" style="color: #6d2417;">4. Schriftarten (Google Fonts)</h2>
+      <p>
+        Diese Seite lädt Schriftarten von Google Fonts (Google Ireland Limited, Gordon House, Barrow Street,
+        Dublin 4, Irland). Beim Laden der Schriftarten wird deine IP-Adresse an Google übertragen. Die
+        Einbindung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+        einheitlichen und ansprechenden Darstellung). Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity" style="color: #6d2417;">Google Privacy Policy</a>.
+      </p>
+
+      <h2 class="label mb-4 mt-10" style="color: #6d2417;">5. Kontaktformular</h2>
+      <p>
+        Wenn du mir über das Kontaktformular eine Nachricht sendest, verarbeite ich die von dir angegebenen
+        Daten (insbesondere deine E-Mail-Adresse und deine Nachricht), um deine Anfrage zu beantworten.
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung einer Anfrage) beziehungsweise deine
+        Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Die Daten werden gelöscht, sobald sie für die
+        Bearbeitung deiner Anfrage nicht mehr erforderlich sind.
+      </p>
+
+      <h2 class="label mb-4 mt-10" style="color: #6d2417;">6. Cookies und Analyse</h2>
+      <p>
+        Diese Website verwendet keine Cookies und kein Tracking. Es findet keine Reichweitenmessung statt.
+      </p>
+
+      <h2 class="label mb-4 mt-10" style="color: #6d2417;">7. Deine Rechte</h2>
+      <p>
+        Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO),
+        Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) und Widerspruch
+        (Art. 21 DSGVO). Zudem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
+        Für die Ausübung deiner Rechte genügt eine E-Mail an {EMAIL}.
+      </p>
+    </div>
+  </article>
+</Base>
