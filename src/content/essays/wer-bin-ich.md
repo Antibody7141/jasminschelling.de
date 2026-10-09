@@ -36,7 +36,7 @@ Offiziell heißt das nur: Hausfrau. Haushaltsführende Person, wenn's amtlich se
 
 Ich dachte, ich MUSS erwerbstätig sein, um glücklich zu sein. Weil wir Frauen ja alles können und müssen: Mutter sein, Karriere machen, Ehefrau sein, Freundin sein, Sport machen, gut aussehen, aber nicht zu gut. Immer fröhlich, immer gut gelaunt, aufgeräumt, gesund ernährt. Das sieht man online, und das bekommt man aus der Politik mit: Ständig Geld für Kinder und Familie streichen, aber bitte alle wieder Vollzeit arbeiten. Das passt alles nicht zusammen, und da ist so viel Druck. Ich habe lange mit mir gehadert.
 
-Als ich gemerkt habe, dass ich gerade auch ohne Job glücklich sein kann, war das pures Glück. Pure Erleichterung. Auf einmal so viel leichter. Wird das für immer so bleiben? Wahrscheinlich nicht. Aber gerade reicht es – und das war wichtig, um den Druck loszulassen, sofort den nächsten Job finden zu müssen. Ich darf jetzt in Ruhe suchen. Bis das Richtige kommt.
+Als ich gemerkt habe, dass ich auch ohne Job glücklich sein kann, war das pures Glück. Pure Erleichterung. Auf einmal so viel leichter. Wird das für immer so bleiben? Wahrscheinlich nicht. Aber gerade reicht es – und das war wichtig, um den Druck loszulassen, sofort den nächsten Job finden zu müssen. Ich darf jetzt in Ruhe suchen. Bis das Richtige kommt.
 
 Ich bin einfach dauernd dabei, an mir zu arbeiten. Um eine bessere Version zu sein, für meine Kinder, für meinen Mann, aber vor allem für mich. Und irgendwie versuche ich dabei, mich nicht zu verlieren. Wer auch immer ich bin.
 
