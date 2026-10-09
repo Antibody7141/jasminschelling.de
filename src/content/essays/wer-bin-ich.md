@@ -1,6 +1,6 @@
 ---
 title: "wer bin ich?"
-date: "2026-10"
+date: "2026-10-09"
 number: 1
 minutes: 4
 theme: "Wer bin ich"

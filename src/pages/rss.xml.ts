@@ -11,11 +11,14 @@ export async function GET(context: { site: string }) {
     description:
       "Essays und Notizen über das Elternsein ohne Weichzeichner. Von Jasmin Schelling.",
     site: context.site,
-    items: essays.map((e) => ({
-      title: e.data.title,
-      pubDate: new Date(`${e.data.date}-01`),
-      description: e.data.excerpt,
-      link: `/essays/${e.id}/`,
-    })),
+    items: essays.map((e) => {
+      const [y, m, d] = e.data.date.split("-");
+      return {
+        title: e.data.title,
+        pubDate: new Date(`${y}-${m}-${d ?? "01"}`),
+        description: e.data.excerpt,
+        link: `/essays/${e.id}/`,
+      };
+    }),
   });
 }

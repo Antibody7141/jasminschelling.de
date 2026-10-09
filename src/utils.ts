@@ -7,10 +7,11 @@ const MONTHS = [
   "Juli", "August", "September", "Oktober", "November", "Dezember",
 ];
 
-// "2026-09" -> "September 2026"
+// "2026-09" -> "September 2026", "2026-10-09" -> "9. Oktober 2026"
 export function monthYear(date: string): string {
-  const [y, m] = date.split("-");
-  return `${MONTHS[Number(m) - 1]} ${y}`;
+  const [y, m, d] = date.split("-");
+  const month = MONTHS[Number(m) - 1];
+  return d ? `${Number(d)}. ${month} ${y}` : `${month} ${y}`;
 }
 
 export const SHOP_URL = "https://www.etsy.com/shop/BadassParentsDE";
