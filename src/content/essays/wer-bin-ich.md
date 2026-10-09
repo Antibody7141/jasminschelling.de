@@ -1,5 +1,5 @@
 ---
-title: "wer bin ich"
+title: "wer bin ich?"
 date: "2026-10"
 number: 1
 minutes: 4
