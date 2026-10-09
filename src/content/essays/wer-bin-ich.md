@@ -26,7 +26,7 @@ Seit ich mir diese Frage wirklich stelle, finde ich Dinge über mich heraus, die
 
 Ich habe herausgefunden, dass ich nachtragend bin. Das war mir vorher nicht so bewusst. Ich dachte, ich verzeihe schnell, bis ich gemerkt habe, dass ich manches eben nicht vergesse. Und dass ich das ändern will. Bisher erfolglos, aber die Akte bleibt offen.
 
-Ich habe herausgefunden, dass ich gerne mit Holz arbeite. Ich baue uns kleine Möbel. Nicht gut, aber meins. Und ich habe herausgefunden, dass ich das Kreative vermisse. Deshalb habe ich meine Brand gegründet. Nicht für den großen Auftritt. Einfach, weil ich Dinge machen muss, sonst dreh ich durch.
+Ich habe herausgefunden, dass ich gerne mit Holz arbeite. Ich baue uns kleine Möbel. Nicht gut, aber unseres. Und ich habe herausgefunden, dass ich das Kreative vermisse. Deshalb habe ich meine Brand gegründet. Nicht für den großen Auftritt. Einfach, weil ich Dinge machen muss, sonst dreh ich durch.
 
 Ich habe herausgefunden, dass mir Politik wichtig geworden ist. Auf eine Art, die mir früher selbst peinlich gewesen wäre. Und dass ich Serien immer noch liebe, nur nicht mehr so intensiv, weil ich schlicht keine Zeit mehr habe. Die Prioritäten werden eben anders gesetzt. Netflix fragt neuerdings, ob ich noch da bin. Ja. Kaum noch.
 
@@ -38,7 +38,7 @@ Ich dachte, ich MUSS erwerbstätig sein, um glücklich zu sein. Weil wir Frauen 
 
 Als ich gemerkt habe, dass ich auch ohne Job glücklich sein kann, war das pures Glück. Pure Erleichterung. Auf einmal so viel leichter. Wird das für immer so bleiben? Wahrscheinlich nicht. Aber gerade reicht es – und das war wichtig, um den Druck loszulassen, sofort den nächsten Job finden zu müssen. Ich darf jetzt in Ruhe suchen. Bis das Richtige kommt.
 
-Ich bin einfach dauernd dabei, an mir zu arbeiten. Um eine bessere Version zu sein, für meine Kinder, für meinen Mann, aber vor allem für mich. Und irgendwie versuche ich dabei, mich nicht zu verlieren. Wer auch immer ich bin.
+Ich entwickle mich einfach ständig weiter. Für meine Kinder, für meinen Mann, aber vor allem für mich. Und irgendwie versuche ich dabei, mich nicht zu verlieren. Wer auch immer ich bin.
 
 „Wer bin ich?“ Klingt nach einer großen Frage. Früher war ich die Frau, die irgendwo hingegangen ist, um zu beweisen, dass sie es kann. Heute bin ich die Frau, die einfach da ist, wo sie ist. Vielleicht kommt die Frau von früher auch mal wieder. Nur gerade macht sie eine wohlverdiente Pause. Wahrscheinlich irgendwo in einer Hängematte im „White Lotus“ Palermo.
 
