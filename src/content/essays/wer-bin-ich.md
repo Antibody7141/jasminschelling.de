@@ -10,6 +10,7 @@ bullets:
   - "Burnout & zwei Elternzeiten"
   - "Die Frage, die man nie fertig beantwortet"
 excerpt: "Nach dem Abi keine Ahnung, dann „irgendwas mit Medien“, dann der Burnout und mitten drin die Schwangerschaft. Eine Frage, die man nie fertig beantwortet."
+bild: "/bilder/wer-bin-ich.png"
 ---
 
 „Wer bin ich?“: Zehn Jahre lang war das die einfachste Frage der Welt. „Producerin“: Fertig, runde Klammer. Das hat gereicht, auf Partys, beim Amt, vor allem mir selbst.

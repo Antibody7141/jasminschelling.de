@@ -16,6 +16,13 @@ const lead = essays[0];
   <!-- Hero: Lead-Essay -->
   <section class="border-b border-linen-200">
     <div class="max-w-3xl mx-auto px-6 sm:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28">
+      {lead.data.bild && (
+        <img
+          src={lead.data.bild}
+          alt=""
+          class="w-full aspect-video object-cover mb-10"
+        />
+      )}
       <p class="label mb-6" style="color: #7a392c;">
         {pad(lead.data.number)} · {monthYear(lead.data.date)} · {lead.data.minutes} Min. Lesezeit
       </p>
@@ -54,13 +61,13 @@ const lead = essays[0];
     <div class="max-w-3xl mx-auto px-6 sm:px-8 py-16 lg:py-20">
       <h2 class="label mb-8" style="color: #7a392c;">Über mich</h2>
       <p class="text-lg leading-relaxed mb-6" style="color: #55423f;">
-        Zehn Jahre lang war die Antwort auf die Frage, wer ich bin, super einfach: Producerin. Dann kamen der Burnout und mitten drin die Schwangerschaft. Heute bin ich Mutter von zwei Kindern und gerade dabei herauszufinden, wer übrig bleibt, wenn die Berufsbezeichnung wegfällt.
+        Ich habe mir Elternschaft wie Zuckerwatte vorgestellt: bunt, flauschig, süß. Ist sie nicht. Sie ist ganz schön tough. Und so sehr ich meine zwei Kinder liebe, und ich liebe sie sehr, so sehr vermisse ich auch mein altes Leben. Beides ist wahr. Beides darf sein. Eigentlich sagt man so etwas nicht. Ich mache es trotzdem.
+      </p>
+      <p class="text-lg leading-relaxed mb-6" style="color: #55423f;">
+        Ich war TV-Producerin. Kreativ, bunt, laut, das bin ich. Nur die Welt, in der ich das ausgelebt habe, hat mich irgendwann kaputt gemacht. Und was ich jetzt mache, ist das Gegenteil von allem, was ich bin. Also suche ich. Ich bin immer schon auf der Suche gewesen.
       </p>
       <p class="text-lg leading-relaxed mb-8" style="color: #55423f;">
-        Ich schreibe Essays über das Elternsein ohne Weichzeichner. Nicht als Ratgeber und nicht für alle, sondern für die, die morgens um sechs allein am Küchentisch sitzen und sich fragen, ob sie langsam verrückt werden. Das hier ist ein Leseraum. Mehr nicht.
-      </p>
-      <p class="text-sm italic font-serif leading-relaxed" style="color: #6d2417;">
-        »Elternsein ist ein bisschen wie eine Party, auf der alle weinen, aber niemand nach Hause gehen kann — und am Ende will man sie trotzdem um keinen Preis verlassen.«
+        Hier schreibe ich Essays über das Elternsein ohne Weichzeichner. Nicht als Ratgeber und nicht für alle, sondern für die, die morgens um sechs allein am Küchentisch sitzen. Kein Kitsch. Kein Flausch. Sondern ehrlich. Direkt. Echt.
       </p>
     </div>
   </section>

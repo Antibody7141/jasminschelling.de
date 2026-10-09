@@ -14,6 +14,7 @@ const essays = defineCollection({
     excerpt: z.string(),        // zwei Zeilen Teaser
     tag: z.string(),            // Hashtag fuer die Karte, z. B. "#Identitaet..."
     bullets: z.array(z.string()), // "Was darin vorkommt" (Karte)
+    bild: z.string().optional(), // optional: Pfad zum Essay-Bild (z. B. "/bilder/wer-bin-ich.png")
   }),
 });
 
