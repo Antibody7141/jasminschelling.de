@@ -10,12 +10,17 @@ export async function getStaticPaths() {
 
 const { e } = Astro.props;
 const { Content } = await render(e);
+
+const all = (await getCollection("essays")).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date)
+);
+const others = all.filter((x) => x.id !== e.id).slice(0, 2);
 ---
 
 <Base title={`${e.data.title} — ${WORDMARK}`} description={e.data.excerpt}>
   <article class="max-w-[720px] mx-auto px-6 sm:px-8 py-16">
     <a
-      href="/#archiv"
+      href="/#essays"
       class="label underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity"
       style="color: #6d2417"
       >Zurück zu allen Essays</a
@@ -37,16 +42,27 @@ const { Content } = await render(e);
       <Content />
     </div>
 
-    <footer class="mt-16 pt-8 border-t" style="border-color: rgba(109, 36, 23, 0.25);">
-      <p class="label mb-4" style="color: #6d2417;">Wenn dir das gefallen hat</p>
-      <p class="leading-relaxed" style="color: #55423f;">
-        Dann schreib mir einen Brief, wenn es einen neuen Text gibt, oder lies
-        weiter im{" "}
-        <a href="/#archiv" class="underline decoration-1 underline-offset-4 hover:opacity-70 transition-opacity" style="color: #6d2417;">
-          Archiv
-        </a>
-        .
-      </p>
-    </footer>
+    {others.length > 0 && (
+      <footer class="mt-16 pt-8 border-t" style="border-color: rgba(109, 36, 23, 0.25);">
+        <p class="label mb-5" style="color: #6d2417;">Weiterlesen</p>
+        <div class="divide-y divide-linen-200 border-y border-linen-200">
+          {others.map((o) => (
+            <a
+              href={`/essays/${o.id}/`}
+              class="group flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-5"
+            >
+              <span
+                class="font-serif text-xl lowercase group-hover:opacity-70 transition-opacity"
+                style="color: #6d2417;"
+                >{o.data.title}</span
+              >
+              <span class="text-xs uppercase tracking-wider shrink-0" style="color: #7e442e;">
+                {monthYear(o.data.date)} · {o.data.minutes} Min.
+              </span>
+            </a>
+          ))}
+        </div>
+      </footer>
+    )}
   </article>
 </Base>
