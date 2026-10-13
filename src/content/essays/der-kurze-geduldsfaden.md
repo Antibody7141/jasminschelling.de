@@ -10,6 +10,7 @@ bullets:
   - "Die „böse Mutter“ im Kopf"
   - "Bike-Mom, Pole Dance und ein Kissen"
 excerpt: "Mal hält mein Geduldsfaden drei Stunden Einschlafbegleitung, mal drei Minuten Kochen. Und was Pole Dance damit zu tun hat."
+bild: "/bilder/der-kurze-geduldsfaden.png"
 ---
 
 Ich habe einen kurzen Geduldsfaden. Mal hält er drei Stunden Einschlafbegleitung, mal keine drei Minuten Kochen. Schlaf ist ausschlaggebend. Sport auch. Ob ich gesund bin oder krank. Alkohol oder keiner. Gut essen oder nicht.
