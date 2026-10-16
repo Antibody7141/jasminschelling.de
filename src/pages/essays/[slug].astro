@@ -28,7 +28,14 @@ const others = all.filter((x) => x.id !== e.id).slice(0, 2);
 
     <header class="mt-12 mb-12 pb-10 border-b" style="border-color: rgba(109, 36, 23, 0.25);">
       {e.data.bild && (
-        <img src={e.data.bild} alt="" class="w-full aspect-video object-cover mb-10" />
+        <>
+          <img src={e.data.bild} alt="" class="w-full aspect-video object-cover mb-3" />
+          {e.data.bildKi && (
+            <p class="text-[10px] uppercase tracking-[0.2em] mb-8" style="color: #78716c;">
+              KI-generiertes Bild
+            </p>
+          )}
+        </>
       )}
       <p class="label mb-5" style="color: #7a392c;">
         Essay {pad(e.data.number)} · {monthYear(e.data.date)} · {e.data.minutes} Min. Lesezeit

@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/newsreader/wght-italic.css";
+import "@fontsource-variable/plus-jakarta-sans";
+import "@fontsource-variable/plus-jakarta-sans/wght-italic.css";
 import { SHOP_URL, SUBTITLE, WORDMARK } from "../utils";
 
 interface Props {
@@ -19,12 +23,6 @@ const pageTitle = title ?? `${WORDMARK} — ${SUBTITLE}`;
     <meta
       name="description"
       content={description ?? "Essays und Notizen über das Elternsein ohne Weichzeichner. Von Jasmin Schelling."}
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
     />
   </head>
   <body class="min-h-screen flex flex-col bg-linen-50 text-ink selection:bg-peach-light">

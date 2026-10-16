@@ -15,6 +15,7 @@ const essays = defineCollection({
     tag: z.string(),            // Hashtag fuer die Karte, z. B. "#Identitaet..."
     bullets: z.array(z.string()), // "Was darin vorkommt" (Karte)
     bild: z.string().optional(), // optional: Pfad zum Essay-Bild (z. B. "/bilder/wer-bin-ich.png")
+    bildKi: z.boolean().optional(), // true = Cover ist KI-generiert (EU-AI-Act-Kennzeichnung)
   }),
 });
 
